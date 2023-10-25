@@ -82,10 +82,15 @@ internal class ReCaptchaWebViewManager {
 
     /// The webview that executes JS code
     lazy var webView: WKWebView = {
+        let mainScreen = UIScreen.main.bounds
         let webview = WKWebView(
-            frame: CGRect(x: 0, y: 0, width: 1, height: 1),
+            frame: CGRect(x: (mainScreen.width - 300) / 2, y: (mainScreen.height - 480) / 2 - 65, width: 300, height: 480),
             configuration: self.buildConfiguration()
         )
+//        let webview = WKWebView(
+//            frame: CGRect(x: 0, y: 0, width: 1, height: 1),
+//            configuration: self.buildConfiguration()
+//        )
         webview.accessibilityIdentifier = "webview"
         webview.accessibilityTraits = UIAccessibilityTraits.link
         webview.isHidden = true
